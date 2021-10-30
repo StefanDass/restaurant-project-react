@@ -25,7 +25,7 @@ export default class RecommendationsList extends Component {
       }
 
     renderRecommendations() {
-        return this.state.recommedations.map((recommendation) => (
+        return this.state.recommendations.map((recommendation) => (
             <RecommendationListItem key={recommendation.id}
                             id={recommendation.id}
                             name={recommendation.name}
