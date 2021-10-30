@@ -5,7 +5,8 @@ const DrinksList = () => {
     const [drinks, setDrinks] = useState(null);
 
     const fetchDrinks = () => { // use REST API
-        fetch("http://localhost:4000/api/v1/drinks")
+        //fetch("http://localhost:4000/api/v1/drinks")
+        fetch("https://fathomless-castle-79570.herokuapp.com/api/v1/drinks")
             .then((response) => response.json())
             .then((result) => setDrinks(result));
     };

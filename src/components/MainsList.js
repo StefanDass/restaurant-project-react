@@ -5,7 +5,8 @@ const MainsList = () => {
     const [mains, setMains] = useState(null);
 
     const fetchMains = () => { // use REST API
-        fetch("http://localhost:4000/api/v1/mains")
+        //fetch("http://localhost:4000/api/v1/mains")
+        fetch("https://fathomless-castle-79570.herokuapp.com/api/v1/mains")
             .then((response) => response.json())
             .then((result) => setMains(result));
     };

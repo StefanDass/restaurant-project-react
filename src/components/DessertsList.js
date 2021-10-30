@@ -5,7 +5,8 @@ const DessertsList = () => {
     const [desserts, setDesserts] = useState(null);
 
     const fetchDesserts = () => { // use REST API
-        fetch("http://localhost:4000/api/v1/desserts")
+        //fetch("http://localhost:4000/api/v1/desserts")
+        fetch("https://fathomless-castle-79570.herokuapp.com/api/v1/desserts")
             .then((response) => response.json())
             .then((result) => setDesserts(result));
     };
