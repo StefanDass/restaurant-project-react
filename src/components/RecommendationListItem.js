@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import RecommendationDetails from './RecommendationDetails';
 
-function RecommendationListItem({ id, name, onDeleteDoctor }) {
+function RecommendationListItem({ id, name, onDeleteRecommendation }) {
     const [ details, setDetails ] = useState(null);
     
     function handleLoadDetails() { 
@@ -16,8 +16,8 @@ function RecommendationListItem({ id, name, onDeleteDoctor }) {
         }
     }
 
-    function handleDeleteDoctor() {
-        onDeleteDoctor(id);
+    function handleDeleteRecommendation() {
+        onDeleteRecommendation(id);
     }
 
     return (
@@ -25,7 +25,7 @@ function RecommendationListItem({ id, name, onDeleteDoctor }) {
             <a href='#' onClick={handleLoadDetails}>
                 {name}
             </a>
-            <button onClick={handleDeleteDoctor}>X</button>
+            <button onClick={handleDeleteRecommendation}>X</button>
             {details && <RecommendationDetails {...details} />}
         </div>
     );
