@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-//import RecommendationListItem from "./RecommendationListItem";
+import RecommendationListItem from "./RecommendationListItem";
 import AddRecommendation from "./AddRecommendations";
 
 //import React, { Component } from 'react';
@@ -18,6 +18,22 @@ export default class RecommendationsList extends Component {
           .then((response) => response.json())
           .then((result) => this.setState({ recommendations: result }));
       }
+
+      handleDeleteRecommendation(id) {
+        const newRecommendationsList = this.state.recommendations.filter(recommendation => recommendation.id !== id);
+        this.setState({recommendations: newRecommendationsList});   
+      }
+
+    renderRecommendations() {
+        return this.state.recommedations.map((recommendation) => (
+            <RecommendationListItem key={recommendation.id}
+                            id={recommendation.id}
+                            name={recommendation.name}
+                            onDeleteRecommendation={(id) => this.handleDeleteRecommendation(id)}
+            />
+        ));
+    }
+      ///
         
     handleAddRecommendation(name) {
         const newRecommendation = { id: Date.now().toString(), name: name };
@@ -29,9 +45,9 @@ export default class RecommendationsList extends Component {
     render() {
         return (
             <>
-            <h2>Recommendations</h2>
-            <AddRecommendation onAddRecommendation={(name) => this.handleAddRecommendation(name)} />
-            {this.renderRecommendations()}
+              <h2>Recommendations</h2>
+              <AddRecommendation onAddRecommendation={(name) => this.handleAddRecommendation(name)} />
+              {this.renderRecommendations()}
              </>
         );
     }
