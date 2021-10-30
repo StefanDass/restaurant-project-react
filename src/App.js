@@ -4,6 +4,7 @@ import AppetizersList from './components/AppetizersList';
 import DessertsList from './components/DessertsList';
 import DrinksList from './components/DrinksList';
 import MainsList from './components/MainsList';
+import Recommendations from './components/RecommendationsList';
 
 function App(props) {
   return (
@@ -13,6 +14,7 @@ function App(props) {
       <MainsList />
       <DessertsList />
       <DrinksList />
+      <Recommendations />
     </>
   );
 }
