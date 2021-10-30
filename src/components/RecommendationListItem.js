@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import RecommendationDetails from './RecommendationDetails';
 
-function RecommendationListItem({ id, name, price, likes, dislikes, ingredients }) {
+function RecommendationListItem({ id, name, onDeleteDoctor }) {
     const [ details, setDetails ] = useState(null);
     
     function handleLoadDetails() { 
@@ -11,22 +11,21 @@ function RecommendationListItem({ id, name, price, likes, dislikes, ingredients 
         } else { // details are NOT showing yet
             setDetails({    // set details to properties
                 id,
-                name,
-                price,
-                likes,
-                dislikes,
-                ingredients
+                name
             });
         }
     }
 
-    // no need to delete items
+    function handleDeleteDoctor() {
+        onDeleteDoctor(id);
+    }
 
     return (
         <div>
             <a href='#' onClick={handleLoadDetails}>
                 {name}
             </a>
+            <button onClick={handleDeleteDoctor}>X</button>
             {details && <RecommendationDetails {...details} />}
         </div>
     );
@@ -34,11 +33,7 @@ function RecommendationListItem({ id, name, price, likes, dislikes, ingredients 
 
 RecommendationListItem.propTypes = {
     id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    likes: PropTypes.number.isRequired,
-    dislikes: PropTypes.number.isRequired,
-
+    name: PropTypes.string.isRequired
 }
 
 export default RecommendationListItem;
