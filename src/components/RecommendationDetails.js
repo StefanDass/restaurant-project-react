@@ -4,7 +4,7 @@ const RecommendationDetails = ({ name }) => {
     
     return (
         <>
-            <h5>We want: {name}</h5>
+            <h5>The people want {name}!</h5>
         </>
     );
 };
