@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AppetizerDetails = ({ price, likes, dislikes, ingredients }) => {
-    // possible ingredients destructuring here:
+    /// possible ingredients destructuring here:
     const first = ingredients['1'];
     const second = ingredients['2'];
     const third = ingredients['3'];
